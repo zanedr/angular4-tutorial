@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   address:Address;
   hobbies:string[];
   etc:any;
+  posts:Post[];
 
   constructor(private dataService:DataService) { 
     console.log('constructor')
@@ -37,7 +38,7 @@ export class UserComponent implements OnInit {
     this.etc = 'whatever';
 
     this.dataService.getPosts().subscribe((posts) => {
-      console.log(posts)
+      this.posts = posts;
     });
   }
 
@@ -66,4 +67,11 @@ interface Address{
   street:string;
   city:string;
   state:string;
+}
+
+interface Post{
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
 }
