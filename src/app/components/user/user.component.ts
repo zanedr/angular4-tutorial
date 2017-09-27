@@ -38,6 +38,21 @@ export class UserComponent implements OnInit {
     this.name = 'Eh?';
     this.hobbies.push('chillin')
   }
+
+  addHobby(hobby){
+    console.log(hobby)
+    this.hobbies.unshift(hobby)
+    return false;
+  }
+
+  deleteHobby(hobby){
+    for(let i = 0; i < this.hobbies.length; i++){
+      if(this.hobbies[i] === hobby){
+        this.hobbies.splice(i, 1);
+      }
+    }
+    console.log(hobby);
+  }
 }
 
 interface Address{
