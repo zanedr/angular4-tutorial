@@ -27,11 +27,16 @@ export class UserComponent implements OnInit {
       state: 'OR'
     };
     this.hobbies = [
-      'codeing',
+      'coding',
       'music',
       'sleeping'
     ];
     this.etc = 'whatever';
+  }
+
+  onClick(){
+    this.name = 'Eh?';
+    this.hobbies.push('chillin')
   }
 }
 
