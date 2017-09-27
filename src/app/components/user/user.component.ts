@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataService } from '../../services/data.service'
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -13,7 +15,7 @@ export class UserComponent implements OnInit {
   hobbies:string[];
   etc:any;
 
-  constructor() { 
+  constructor(private dataService:DataService) { 
     console.log('constructor')
   }
 
@@ -33,6 +35,10 @@ export class UserComponent implements OnInit {
       'sleeping'
     ];
     this.etc = 'whatever';
+
+    this.dataService.getPosts().subscribe((posts) => {
+      console.log(posts)
+    });
   }
 
   onClick(){
